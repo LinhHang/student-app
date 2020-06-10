@@ -1,13 +1,14 @@
 import {NgModule} from '@angular/core';
 import {HeaderComponent} from './header/header.component';
 import {StudentService} from './service/student.service';
-import {HttpClientJsonpModule} from '@angular/common/http';
+import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     FormsModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    HttpClientModule
   ],
   declarations: [
     HeaderComponent
@@ -16,7 +17,7 @@ import {FormsModule} from '@angular/forms';
     HeaderComponent
   ],
   providers: [
-    StudentService
+    StudentService,
   ]
 })
 export class SharedModule {

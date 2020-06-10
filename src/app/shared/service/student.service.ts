@@ -9,13 +9,13 @@ export class StudentService {
     private httpBackend: HttpBackend
   ) {}
 
-  public register(userData: any): Observable<any> {
+  public signIn(userData: any): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
     return this.httpClient.post<any>(
-      'student/register',
+      'student/authenticate',
       userData,
       httpOptions
     );

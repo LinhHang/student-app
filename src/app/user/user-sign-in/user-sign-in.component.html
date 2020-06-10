@@ -5,21 +5,21 @@
 <div class="container-fluid">
 <form class="form-group"
       [formGroup]="form"
-      (submit)="register()">
+      (submit)="signIn()">
   <div>
     <label for="email">
       <i class="ion-ios-email-outline text-color-primary"></i>
     </label>
-    <input type="text" name="email" id="email" placeholder="email">
-    <span>Invalid email</span>
+    <input type="text" name="email" id="email" placeholder="email" formControlName="email" [ngModel] email>
+    <span *ngIf="hasError('email')">Invalid email</span>
   </div>
 
   <div>
     <label for="password">
       <i class="ion-ios-email-outline text-color-primary"></i>
     </label>
-    <input type="password" name="password" id="password" placeholder="Enter your password">
-    <span>Wrong password</span>
+    <input type="password" name="password" id="password" placeholder="Enter your password" formControlName="password">
+    <span *ngIf="hasError('password')">Required field</span>
   </div>
 
   <div class="text-center">
