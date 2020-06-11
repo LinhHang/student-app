@@ -3,6 +3,9 @@ import {HeaderComponent} from './header/header.component';
 import {StudentService} from './service/student.service';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {RequestService} from './service/request.service';
+import {CookieService} from './service/cookie.service';
+import {CommonHeaderComponent} from './common-header/common-header.component';
 
 @NgModule({
   imports: [
@@ -11,13 +14,17 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule
   ],
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    CommonHeaderComponent,
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    CommonHeaderComponent,
   ],
   providers: [
     StudentService,
+    RequestService,
+    CookieService,
   ]
 })
 export class SharedModule {

@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {StudentService} from '../../shared/service/student.service';
 import {isNullOrUndefined, isNull} from '../../shared/service/util';
+import {CookieService} from '../../shared/service/cookie.service';
 
 @Component({
   templateUrl: './user-sign-in.component.html',
@@ -16,7 +17,8 @@ export class UserSignInComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private studentService: StudentService
+    private studentService: StudentService,
+    private cookieService: CookieService,
   ) {
   }
 
@@ -52,7 +54,8 @@ export class UserSignInComponent implements OnInit {
     };
 
     this.studentService.signIn(userData).subscribe((response: any) => {
-      if (response.user) {
+      console.log('res', response)
+      if (response && response.token) {
         this.router.navigate(['/dashboard']);
       }
     });
