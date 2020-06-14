@@ -7,7 +7,9 @@ import {CookieService} from '../../shared/service/cookie.service';
 
 @Component({
   templateUrl: './user-sign-in.component.html',
-  selector: 'app-user-sign-in'
+  selector: 'app-user-sign-in',
+  styleUrls: ['./user-sign-in.component.scss']
+
 })
 
 export class UserSignInComponent implements OnInit {

@@ -5,28 +5,27 @@
   [pageTitle]="'Sign in'">
 </app-common-header>
 
-<div class="container-fluid">
-<form class="form-group"
-      [formGroup]="form"
+<div class="container-fluid row">
+<form [formGroup]="form"
       (submit)="signIn()">
-  <div>
-    <label for="email">
-      <i class="ion-ios-email-outline text-color-primary"></i>
+  <div class="form-group">
+    <label for="email" class="form-part">
+      <i class="fas fa-envelope-open-text"></i>
     </label>
     <input type="text" name="email" id="email" placeholder="email" formControlName="email" [ngModel] email>
     <span *ngIf="hasError('email')">Invalid email</span>
   </div>
 
-  <div>
-    <label for="password">
-      <i class="ion-ios-email-outline text-color-primary"></i>
+  <div class="form-group">
+    <label for="password" class="form-part">
+      <i class="fas fa-key"></i>
     </label>
-    <input type="password" name="password" id="password" placeholder="Enter your password" formControlName="password">
+    <input type="password" name="password" id="password" placeholder="Enter your password" formControlName="password" class="pass">
     <span *ngIf="hasError('password')">Required field</span>
   </div>
 
-  <div class="text-center">
-    <button type="submit" class="btn btn-bordered centered">Sign in</button>
+  <div class="form-group submit-button">
+    <button type="submit" class="btn">Sign in</button>
   </div>
 </form>
 </div>

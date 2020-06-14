@@ -25,11 +25,17 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/images"
             ],
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules/"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -107,7 +113,8 @@
             ],
             "exclude": [
               "**/node_modules/**"
-            ]
+            ],
+            "webpackImporter": false
           }
         },
         "e2e": {
@@ -123,6 +130,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "student-app"
+    }
+  },
+  "defaultProject": "student-app",
+  "cli": {
+    "analytics": "01be2918-2601-446f-aeda-f355213b1049"
+  }
 }
