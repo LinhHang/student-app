@@ -1,0 +1,59 @@
+<!-- Plain Background Wrapper -->
+<!-- Fixed Navbar Header -->
+<app-menu></app-menu>
+<!-- end Fixed Navbar Header -->
+
+<app-common-header
+        [pageTitle]="pageTitle">
+</app-common-header>
+<!-- Content -->
+<div class="container-fluid profile" *ngIf="student | json">
+    <!-- Investment Form Section -->
+    <div class="row content-section no-border has-footer">
+        <div class="form-group ">
+            <div class="main-field">
+                <span class="field-name">First Name: </span>
+                <span id="firstName" class="form-control">{{student?.firstName}}</span>
+                <span>{{student?.firstName}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="main-field">
+                <span class="field-name">Last Name: </span>
+                <span id="lastName"class="form-control">{{student?.lastName}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="main-field">
+                <span class="field-name">Gender: </span>
+                <span id="gender" class="form-control">{{student?.gender}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="main-field">
+                <span class="field-name">Date of birth: </span>
+                <span id="age" class="form-control">{{student?.age}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="main-field">
+                <span class="field-name">Email: </span>
+                <span id="email" class="form-control">{{student?.email}}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="main-field">
+                <span class="field-name">Address: </span>
+                <span id="address" class="form-control">{{student?.address}}</span>
+            </div>
+        </div>
+    </div>
+    <!--end Investment Form Section-->
+
+    <footer></footer>
+</div>
+<!-- end Content -->
+<!-- end Plain Background Wrapper -->
+
+<!-- Footer -->
+<!-- end Footer -->

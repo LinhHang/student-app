@@ -8,7 +8,7 @@ import { isNull } from 'lodash';
 @Injectable()
 export class CookieService {
 
-  public static get(name: string): string {
+  public get(name: string): string {
     const regexp: RegExp = new RegExp('(?:^|; )' + name + '=([^;]*)');
     const result: RegExpExecArray = regexp.exec(document.cookie);
 
@@ -24,7 +24,7 @@ export class CookieService {
     return value;
   }
 
-  public static set(key: string, value: any, options?: any): void {
+  public set(key: string, value: any, options?: any): void {
     let cookie = `${key}=${encodeURIComponent(JSON.stringify(value))};`;
     let path = '/';
 
@@ -45,7 +45,7 @@ export class CookieService {
     document.cookie = cookie;
   }
 
-  public static remove(key: string): void {
+  public remove(key: string): void {
     if (!this.get(key)) {
       return;
     }

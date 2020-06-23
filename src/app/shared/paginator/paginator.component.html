@@ -1,0 +1,21 @@
+<a href=""
+   class="pagination-prev"
+   (click)="pageSwitchByValue(-1, $event)"
+   *ngIf="(currentPage > 1)" >
+
+  <i class="mei-back"></i>
+</a>
+
+<span class="pagination-bullet"
+      *ngFor="let page of pages; trackBy: identify"
+      (click)="pageSwitchByValue(page - currentPage, $event)"
+      [ngClass]="{'pagination-bullet-active': currentPage === page}" >
+</span>
+
+<a href=""
+   class="pagination-next"
+   (click)="pageSwitchByValue(1, $event)"
+   *ngIf="(currentPage < totalPages)" >
+
+  <i class="mei-forward"></i>
+</a>

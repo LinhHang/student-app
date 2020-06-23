@@ -1,0 +1,43 @@
+app-common-header {
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+}
+.profile {
+  justify-content: center;
+}
+.profile, .form-group, .main-field {
+  display: flex;
+}
+.form-group {
+  padding-bottom: 15px;
+  font-size: 18px;
+  flex-direction: column;
+}
+.field-name {
+  width: 100px;
+}
+.form-control {
+  width: 300px;
+  height: 30px;
+  border: 2px solid darkgrey;
+  border-radius: 5px;
+}
+label {
+  line-height: 35px;
+}
+.note {
+  color: red;
+  padding-left: 185px;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  padding-left: 70px;
+}
+button {
+  width: 90px;
+  height: 30px;
+  border: 1.5px solid lightslategrey;
+  border-radius: 5px;
+}

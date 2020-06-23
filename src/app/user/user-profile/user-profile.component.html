@@ -1,0 +1,77 @@
+<!-- Plain Background Wrapper -->
+<!-- Fixed Navbar Header -->
+<app-menu></app-menu>
+<!-- end Fixed Navbar Header -->
+
+<app-common-header
+        [pageTitle]="'My profile'">
+</app-common-header>
+<!-- Content -->
+<div class="container-fluid profile">
+    <!-- Investment Form Section -->
+    <div class="row content-section no-border has-footer">
+        <div class="col-lg-12 section no-border">
+            <div class="content-wrapper">
+                <form [formGroup]="form" novalidate class="profile-form">
+                    <div class="page-form">
+                        <div class="form-group required"
+                             [class.has-error]="form.controls.firstName.invalid && hasError('firstName')">
+                            <div class="main-field">
+                                <label for="firstName" class="field-name">First Name</label>
+                                <input formControlName="firstName" id="firstName" type="text" class="form-control" required>
+                            </div>
+                            <p class="note" *ngIf="hasError('firstName')">Invalid first name</p>
+                        </div>
+                        <div class="form-group required"
+                             [class.has-error]="form.controls.lastName.invalid && hasError('lastName')">
+                            <div class="main-field">
+                                <label for="lastName" class="field-name">Last Name</label>
+                                <input formControlName="lastName" id="lastName" type="text" class="form-control" required>
+                            </div>
+                            <p class="note" *ngIf="hasError('lastName')">Invalid last name</p>
+                        </div>
+                        <div class="form-group required"
+                             [class.has-error]="form.controls.idNumber.invalid && hasError('idNumber')">
+                            <div class="main-field">
+                                <label for="idNumber" class="field-name">Mobile</label>
+                                <input formControlName="idNumber" type="text" id="idNumber" class="form-control" required>
+                            </div>
+                            <p class="note" *ngIf="hasError('idNumber')">Invalid mobile</p>
+                        </div>
+                        <div class="form-group required"
+                             [class.has-error]="form.controls.mobile.invalid && hasError('mobile')">
+                            <div class="main-field">
+                                <label for="mobile" class="field-name">Mobile</label>
+                                <input formControlName="mobile" type="text" id="mobile" class="form-control" required>
+                            </div>
+                            <p class="note" *ngIf="hasError('mobile')">Invalid mobile</p>
+                        </div>
+                        <div class="form-group required"
+                             [class.has-error]="form.controls.email.invalid && hasError('email')">
+                            <div class="main-field">
+                                <label for="email" class="field-name">Email</label>
+                                <input formControlName="email" id="email" type="text" class="form-control">
+                            </div>
+                            <p class="note"
+                                  [hidden]="!form.controls.email.invalid">Invalid email</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--end Investment Form Section-->
+
+    <footer></footer>
+</div>
+    <!-- end Content -->
+<!-- end Plain Background Wrapper -->
+
+<!-- Footer -->
+<div class="footer navbar-fixed-bottom">
+    <div class="container-fluid">
+        <button (click)="editDetails(form)"
+                class="btn btn-footer btn-primary">Confirm</button>
+    </div>
+</div>
+<!-- end Footer -->

@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {StudentService} from '../../shared/service/student.service';
 import {isNullOrUndefined, isNull} from '../../shared/service/util';
 import {CookieService} from '../../shared/service/cookie.service';
+import {UserService} from '../../shared/service/user.service';
 
 @Component({
   templateUrl: './user-sign-in.component.html',
@@ -19,7 +19,7 @@ export class UserSignInComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private studentService: StudentService,
+    private userService: UserService,
     private cookieService: CookieService,
   ) {
   }
@@ -51,14 +51,15 @@ export class UserSignInComponent implements OnInit {
     }
 
     const userData: any = {
-      email: this.form.value.email,
+      username: this.form.value.email,
       password: this.form.value.password
     };
 
-    this.studentService.signIn(userData).subscribe((response: any) => {
-      console.log('res', response)
+    this.userService.signIn(userData).subscribe((response: any) => {
       if (response && response.token) {
-        this.router.navigate(['/dashboard']);
+        console.log('response', response);
+        this.cookieService.set('token', response.token);
+        this.router.navigate(['/students']);
       }
     });
 

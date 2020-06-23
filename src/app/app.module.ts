@@ -6,12 +6,17 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { UserSignInComponent } from './user/user-sign-in/user-sign-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {UserProfileComponent} from './user/user-profile/user-profile.component';
+import {StudentInfoComponent} from './student-info/student-info.component';
+import {AuthInterceptor} from './shared/service/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserSignInComponent,
+    UserProfileComponent,
+    StudentInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
   exports: [
   ],
   providers: [
-    HttpClientModule
+    HttpClientModule,
   ],
   bootstrap: [AppComponent],
   schemas: [
