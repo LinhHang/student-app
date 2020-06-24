@@ -10,6 +10,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {UserProfileComponent} from './user/user-profile/user-profile.component';
 import {StudentInfoComponent} from './student-info/student-info.component';
 import {AuthInterceptor} from './shared/service/auth.interceptor';
+import {SubjectListComponent} from './subject/subject-list/subject-list.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {AuthInterceptor} from './shared/service/auth.interceptor';
     UserSignInComponent,
     UserProfileComponent,
     StudentInfoComponent,
+    SubjectListComponent
   ],
   imports: [
     BrowserModule,

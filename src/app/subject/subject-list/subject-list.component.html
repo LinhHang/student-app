@@ -7,54 +7,43 @@
 </app-common-header>
 
 <div class="content-wrapper has-adaptable-bar">
-    <div class="tab-content tab-pane active" id="categories">
-        <div class="row">
-            <div class="col-sm-12">
-
-                <ul class="unsettled-list table-like-sm">
-                    <li class="table-row-like-sm th">
-                        <div class="table-cell-like-sm">
-                            Subject code
-                        </div>
-                        <div class="table-cell-like-sm sorting">
-                            Subject name
-                        </div>
-                        <div class="table-cell-like-sm sorting">
-                            Subject status
-                        </div>
-                    </li>
-                    <li *ngFor="let delegate of delegates" class="table-row-like-sm">
-                        <div class="table-cell-like-sm">
-                            {{delegate.functionTitle}}
-                        </div>
-                        <div class="table-cell-like-sm">
-                            <b>{{delegate.masterCompany.name}}</b>
-                        </div>
-                        <div class="table-cell-like-sm">
-                            {{delegate.country.name}}
-                        </div>
-                    </li>
-                </ul>
-                <div class="text-center margin-top-10 margin-bottom-10">
-                    <app-paginator class="bullet-pagination"
-                                   [totalPages]="totalPages"
-                                   [currentPage]="currentPage"
-                                   (redirectCallback)="redirectCallback($event)">
-                    </app-paginator>
-                </div>
-                <div class="pagination-counter small-text text-center margin-bottom-20">
-                    <span class="text-color-yellow">{{page}}</span> / <span class="text-color-dark">{{totalPages}}</span>
-                </div>
-
-            </div>
+  <div class="row">
+      <div class="col-sm-12">
+        <div class="unsettled-list table-like-sm">
+          <div class="table-cell-like-sm">
+            Subject code
+          </div>
+          <div class="table-cell-like-sm sorting">
+            Subject name
+          </div>
+          <div class="table-cell-like-sm sorting">
+            Point
+          </div>
         </div>
-    </div>
+        <ul class="unsettled-list">
+          <li *ngFor="let subject of subjects">
+            <div class="table-cell">
+              {{subject?.name}}
+            </div>
+            <div class="table-cell">
+              <b>{{subject?.code}}</b>
+            </div>
+            <div class="table-cell">
+              {{subject?.credit_point}}
+            </div>
+          </li>
+        </ul>
+        <div class="text-center margin-top-10 margin-bottom-10">
+          <app-paginator class="bullet-pagination"
+                             [totalPages]="totalPages"
+                             [currentPage]="currentPage"
+                             (redirectCallback)="redirectCallback($event)">
+          </app-paginator>
+        </div>
+        <div class="pagination-counter small-text text-center margin-bottom-20">
+          <span class="text-color-yellow">{{page}}</span> / <span class="text-color-dark">{{totalPages}}</span>
+        </div>
 
-    <!--<div class="footer navbar-fixed-bottom text-center">-->
-        <!--<a class="btn btn-primary centered"-->
-           <!--href="javascript:"-->
-           <!--(click)="updateWishlist()">-->
-            <!--{{"OFFERING_TEAM_WISH_LIST_INVITE_SELECTED_DELEGATES"| localize}}-->
-        <!--</a>-->
-    <!--</div>-->
+      </div>
+  </div>
 </div>

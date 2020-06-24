@@ -4,6 +4,7 @@ import {UserSignInComponent} from './user/user-sign-in/user-sign-in.component';
 import {MenuComponent} from './shared/menu/menu.component';
 import {UserProfileComponent} from './user/user-profile/user-profile.component';
 import {StudentInfoComponent} from './student-info/student-info.component';
+import {SubjectListComponent} from './subject/subject-list/subject-list.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'students',
     component: StudentInfoComponent
+  },
+  {
+    path: 'subjects',
+    component: SubjectListComponent
   }
 ];
 
