@@ -17,4 +17,10 @@ export class RequestService {
   public getApiAddress(): string {
     return 'http://localhost:8080/api';
   }
+
+  public getToken(): string {
+    const token: string = this.cookieService.get('token');
+
+    return token ? token : null;
+  }
 }

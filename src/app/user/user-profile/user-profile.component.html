@@ -31,18 +31,18 @@
                             <p class="note" *ngIf="hasError('lastName')">Invalid last name</p>
                         </div>
                         <div class="form-group required"
-                             [class.has-error]="form.controls.idNumber.invalid && hasError('idNumber')">
+                             [class.has-error]="form.controls.id_card.invalid && hasError('id_card')">
                             <div class="main-field">
-                                <label for="idNumber" class="field-name">Mobile</label>
-                                <input formControlName="idNumber" type="text" id="idNumber" class="form-control" required>
+                                <label for="id_card" class="field-name">ID card</label>
+                                <input formControlName="id_card" type="text" id="id_card" class="form-control" required>
                             </div>
-                            <p class="note" *ngIf="hasError('idNumber')">Invalid mobile</p>
+                            <p class="note" *ngIf="hasError('idNumber')">Invalid id card</p>
                         </div>
                         <div class="form-group required"
-                             [class.has-error]="form.controls.mobile.invalid && hasError('mobile')">
+                             [class.has-error]="form.controls.phone.invalid && hasError('mobile')">
                             <div class="main-field">
-                                <label for="mobile" class="field-name">Mobile</label>
-                                <input formControlName="mobile" type="text" id="mobile" class="form-control" required>
+                                <label for="phone" class="field-name">Mobile</label>
+                                <input formControlName="phone" type="text" id="phone" class="form-control" required>
                             </div>
                             <p class="note" *ngIf="hasError('mobile')">Invalid mobile</p>
                         </div>

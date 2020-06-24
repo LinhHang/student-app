@@ -29,6 +29,11 @@ import {AuthInterceptor} from './shared/service/auth.interceptor';
   ],
   providers: [
     HttpClientModule,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent],
   schemas: [

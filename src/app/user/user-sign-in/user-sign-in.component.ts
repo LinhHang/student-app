@@ -9,7 +9,6 @@ import {UserService} from '../../shared/service/user.service';
   templateUrl: './user-sign-in.component.html',
   selector: 'app-user-sign-in',
   styleUrls: ['./user-sign-in.component.scss']
-
 })
 
 export class UserSignInComponent implements OnInit {
@@ -55,11 +54,11 @@ export class UserSignInComponent implements OnInit {
       password: this.form.value.password
     };
 
-    this.userService.signIn(userData).subscribe((response: any) => {
-      if (response && response.token) {
-        console.log('response', response);
-        this.cookieService.set('token', response.token);
-        this.router.navigate(['/students']);
+    this.userService.signIn(userData).subscribe((response: Array<any>) => {
+      if (response && response.length) {
+        this.cookieService.set('token', response[0].token);
+        this.cookieService.set('user', response[1]);
+        this.router.navigate(['/profile']);
       }
     });
 

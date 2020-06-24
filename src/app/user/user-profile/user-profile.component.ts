@@ -11,7 +11,6 @@ import {UserService} from '../../shared/service/user.service';
 })
 export class UserProfileComponent implements OnInit {
   public form: FormGroup;
-  public userId: number;
   public loggedUser: any;
 
   constructor(
@@ -23,25 +22,22 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userId = Number(this.cookieService.get('user_id'));
     this.createContactForm();
   }
 
   private createContactForm() {
-    this.userService.getUser(this.userId).subscribe((response) => {
-      this.loggedUser = response;
+    this.loggedUser = this.cookieService.get('user');
+    console.log('user', this.loggedUser);
 
-      this.form = this.formBuilder.group({
-        firstName: ['', Validators.required],
-        lastName: ['', Validators.required],
-        countryId: ['', Validators.required],
-        idNumber: ['', Validators.required],
-        mobile: ['', Validators.required],
-        email: [{value: '', disabled: !!this.loggedUser.email}, Validators.required]
-      });
-
-      this.form.patchValue(this.loggedUser);
+    this.form = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      id_card: ['', Validators.required],
+      phone: ['', Validators.required],
+      email: [{value: '', disabled: !!this.loggedUser.email}, Validators.required]
     });
+
+    this.form.patchValue(this.loggedUser);
   }
 
   public hasError(field: string, validatorName?: string): boolean {

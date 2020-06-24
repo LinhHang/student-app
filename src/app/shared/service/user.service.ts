@@ -30,26 +30,12 @@ export class UserService {
   }
 
   public getUser(studentId: number): Observable<any> {
-    // const httpOptions = this.generateCommonHeader();
-    //
-    // return this.httpClient.get<any>(
-    //   `${this.requestService.getApiAddress()}/student/${studentId}`,
-    //   httpOptions
-    // );
+    const httpOptions = this.generateCommonHeader();
 
-    return of({
-      firstName: 'Hang',
-      lastName: 'Linh',
-      idNumber: '145632860',
-      mobile: '0364992759',
-      email: 'monmon.elf@gmail.com'
-    });
-  }
-
-  public getToken(): string {
-    const token: string = this.cookieService.get('token');
-
-    return token ? token : null;
+    return this.httpClient.get<any>(
+      `${this.requestService.getApiAddress()}/student/${studentId}`,
+      httpOptions
+    );
   }
 
   public getGender(gender: number): string {
