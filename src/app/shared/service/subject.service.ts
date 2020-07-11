@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpBackend, HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {RequestService} from './request.service';
 
@@ -8,22 +8,31 @@ export class SubjectService {
   constructor(
     private httpClient: HttpClient,
     private requestService: RequestService,
-    private httpBackend: HttpBackend
   ) {}
 
-  public getAllSubjects() {}
-  public getStudentById(studentId: number): Observable<any> {
-    const httpOptions = this.generateCommonHeader();
-
+  public getAllSubjects(): Observable<any> {
     return this.httpClient.get<any>(
-      `${this.requestService.getApiAddress()}/students/${studentId}`,
-      httpOptions
+      `${this.requestService.getApiAddress()}/subjects`,
     );
   }
 
-  public generateCommonHeader(): any {
-    return {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
+  public addSubject(subjectData): Observable<any> {
+    return this.httpClient.post<any>(
+      `${this.requestService.getApiAddress()}/subjects`,
+      subjectData
+    );
+  }
+
+  public getSubjectById(subjectId: number): Observable<any> {
+    return this.httpClient.get<any>(
+      `${this.requestService.getApiAddress()}/subjects/${subjectId}`,
+    );
+  }
+
+  public updateSubject(subjectData): Observable<any> {
+    return this.httpClient.put<any>(
+      `${this.requestService.getApiAddress()}/subjects`,
+      subjectData
+    );
   }
 }

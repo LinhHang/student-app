@@ -1,0 +1,56 @@
+<!-- Fixed Navbar Header -->
+<app-menu></app-menu>
+<!-- end Fixed Navbar Header -->
+
+<app-common-header
+        [pageTitle]="'All subjects'">
+</app-common-header>
+
+<div class="content-wrapper has-adaptable-bar" *ngIf="subjectScores">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="unsettled-list table-like-sm">
+                <div class="table-cell-like-sm sorting">
+                    Student ID
+                </div>
+                <div class="table-cell-like-sm sorting">
+                    Student name
+                </div>
+                <div class="table-cell-like-sm sorting">
+                    Core
+                </div>
+                <div class="table-cell-like-sm sorting">
+                    Detail
+                </div>
+            </div>
+            <ul class="unsettled-list">
+                <li *ngFor="let subjectScore of subjectScores">
+                    <div class="table-cell">
+                        {{subjectScore?.student?.id}}
+                    </div>
+                    <div class="table-cell">
+                        {{getFullName(subjectScore?.student)}}
+                    </div>
+                    <div class="table-cell">
+                        <b>{{subjectScore?.score}}</b>
+                    </div>
+                    <div class="table-cell">
+                        <a class="link-info" routerLink="/student/{{subjectScore?.student?.id}}">
+                            <i class="fas fa-address-card"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="pagination-counter small-text text-center margin-bottom-20">
+                <span class="text-color-yellow">{{page}}</span> / <span class="text-color-dark">{{totalPages}}</span>
+            </div>
+            <div class="add-button">
+                <a routerLink="/subject/{{subjectId}}/score/add">
+                    <button>Add student score</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<!-- Plain Background Wrapper -->
+<!-- Fixed Navbar Header -->
+<app-menu></app-menu>
+<!-- end Fixed Navbar Header -->
+
+<app-common-header
+        [pageTitle]="'Edit subject'">
+</app-common-header>
+<!-- Content -->
+<div class="container-fluid profile">
+    <!-- Investment Form Section -->
+    <div class="row content-section no-border has-footer">
+        <div class="col-lg-12 section no-border">
+            <div class="content-wrapper" *ngIf="subject">
+                <form [formGroup]="form" class="profile-form" (submit)="editDetails()">
+                    <div class="page-form">
+                        <div class="form-group required"
+                             [class.has-error]="form.controls.name.invalid && hasError('name')">
+                            <div class="main-field">
+                                <label for="name" class="name">Subject name</label>
+                                <input formControlName="name" id="name" type="text" class="form-control" required>
+                            </div>
+                            <p class="note error" *ngIf="hasError('name')">Invalid field</p>
+                        </div>
+                        <div class="form-group required"
+                             [class.has-error]="form.controls.code.invalid && hasError('lastName')">
+                            <div class="main-field">
+                                <label for="code" class="field-name">Subject code</label>
+                                <input formControlName="code" id="code" type="text" class="form-control" required>
+                            </div>
+                            <p class="note error" *ngIf="hasError('code')">Invalid field</p>
+                        </div>
+                        <div class="form-group required"
+                             [class.has-error]="form.controls.creditPoint.invalid && hasError('id_card')">
+                            <div class="main-field">
+                                <label for="creditPoint" class="field-name">Subject point</label>
+                                <input formControlName="creditPoint" type="text" id="creditPoint" class="form-control" required>
+                            </div>
+                            <p class="note" *ngIf="hasError('creditPoint')">Invalid id card</p>
+                        </div>
+                    </div>
+
+                    <div class="footer navbar-fixed-bottom">
+                        <div class="container-fluid">
+                            <button type="submit" class="btn btn-footer btn-primary">Confirm</button>
+                        </div>
+                    </div>
+
+                    <div class="footer navbar-fixed-bottom" *ngIf="isShowErrorMsg">
+                        <p class="error"> Edit unsuccessfully</p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--end Investment Form Section-->
+
+    <footer></footer>
+</div>
+<!-- end Content -->
+<!-- end Plain Background Wrapper -->
+
+<!-- Footer -->
+
+<!-- end Footer -->

@@ -8,7 +8,7 @@ import {UserService} from '../shared/service/user.service';
   styleUrls: ['./student-info.component.scss']
 })
 export class StudentInfoComponent implements OnInit {
-  public studentId: number = 1;
+  public studentId: number;
   public student: any;
   public pageTitle = '';
   constructor(
@@ -19,7 +19,7 @@ export class StudentInfoComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.pageTitle = 'Student profile';
-    // this.studentId = Number(this.activatedRoute.snapshot.paramMap.get('studentId'));
+    this.studentId = +this.activatedRoute.snapshot.paramMap.get('id');
 
     setTimeout(() => {
       this.studentService.getStudentById(this.studentId).subscribe((response) => {

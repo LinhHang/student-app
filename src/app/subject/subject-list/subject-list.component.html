@@ -6,7 +6,7 @@
         [pageTitle]="'All subjects'">
 </app-common-header>
 
-<div class="content-wrapper has-adaptable-bar">
+<div class="content-wrapper has-adaptable-bar" *ngIf="subjects">
   <div class="row">
       <div class="col-sm-12">
         <div class="unsettled-list table-like-sm">
@@ -19,6 +19,9 @@
           <div class="table-cell-like-sm sorting">
             Point
           </div>
+          <div class="table-cell-like-sm sorting">
+            Detail
+          </div>
         </div>
         <ul class="unsettled-list">
           <li *ngFor="let subject of subjects">
@@ -29,7 +32,18 @@
               <b>{{subject?.code}}</b>
             </div>
             <div class="table-cell">
-              {{subject?.credit_point}}
+              {{subject?.creditPoint}}
+            </div>
+            <div class="table-cell">
+              <div class="item-bound">
+                <a class="item" routerLink="/subjects/edit/{{subject?.id}}">
+                  <i class="fas fa-info-circle"></i>
+                </a>
+                <i class="fas fa-trash-alt item" (click)="deleteSubject(subject)"></i>
+                <a class="item" routerLink="/subjects/{{subject?.id}}/scores">
+                  <i class="fas fa-users"></i>
+                </a>
+              </div>
             </div>
           </li>
         </ul>
@@ -42,6 +56,11 @@
         </div>
         <div class="pagination-counter small-text text-center margin-bottom-20">
           <span class="text-color-yellow">{{page}}</span> / <span class="text-color-dark">{{totalPages}}</span>
+        </div>
+        <div class="add-button">
+          <a routerLink="/subjects/add">
+            <button>Add more subject</button>
+          </a>
         </div>
 
       </div>

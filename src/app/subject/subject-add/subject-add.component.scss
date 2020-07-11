@@ -1,0 +1,53 @@
+.container-fluid, .submit-button, .error-msg {
+  display: flex;
+  justify-content: center;
+}
+
+.container-fluid {
+  height: 50px;
+}
+
+.submit-button {
+  padding-left: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+.form-group {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+
+.form-part {
+  margin-right: 30px;
+  width: 30%;
+}
+
+label {
+  font-size: 25px;
+  padding-top: 12px;
+  color: darkslategray;
+}
+
+input {
+  width: 350px;
+  height: 40px;
+  border: 2px solid darkslategray;
+  border-radius: 5px;
+  text-align: center;
+  font: caption;
+  font-size: 20px;
+}
+
+.btn {
+  height: 35px;
+  width: 80px;
+  font-size: 17px;
+  color: darkslategray;
+}
+.error {
+  color: red;
+}

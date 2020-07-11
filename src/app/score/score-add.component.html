@@ -1,0 +1,51 @@
+<!-- Plain Background Wrapper -->
+<!-- Fixed Navbar Header -->
+<app-menu></app-menu>
+<!-- end Fixed Navbar Header -->
+
+<app-common-header
+        [pageTitle]="'Student score adding'">
+</app-common-header>
+<!-- Content -->
+<div class="container-fluid row">
+    <form [formGroup]="form"
+          (submit)="addStudentScore()">
+        <div class="form-group">
+            <label for="subjectId" class="form-part">
+                Subject code
+            </label>
+            <input type="text" name="subjectId" id="subjectId" formControlName="subjectId">
+            <span *ngIf="hasError('subjectId')" class="error">Required field</span>
+        </div>
+
+        <div class="form-group">
+            <label for="studentId" class="form-part">
+                Student code
+            </label>
+            <input type="text" name="studentId" id="studentId" formControlName="studentId" class="pass">
+            <span *ngIf="hasError('studentId')" class="error">Required field</span>
+        </div>
+
+        <div class="form-group">
+            <label for="score" class="form-part">
+                Score
+            </label>
+            <input type="text" name="score" id="score" formControlName="score" class="pass">
+            <span *ngIf="hasError('score')" class="error">Required field</span>
+        </div>
+
+        <div class="form-group submit-button">
+            <button type="submit" class="btn">Add</button>
+        </div>
+
+        <div class="error-msg" *ngIf="isShowErrorMessage">
+            <p class="error error-msg">Can not add student score</p>
+        </div>
+    </form>
+</div>
+<!--end Investment Form Section-->
+
+<footer></footer>
+<!-- end Content -->
+<!-- end Plain Background Wrapper -->
+

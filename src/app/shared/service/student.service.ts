@@ -9,13 +9,11 @@ export class StudentService {
   constructor(
     private httpClient: HttpClient,
     private requestService: RequestService,
-    private userService: UserService,
-    private httpBackend: HttpBackend
   ) {}
 
   public getStudentById(studentId: number): Observable<any> {
     return this.httpClient.get<any>(
-      `${this.requestService.getApiAddress()}/students`,
+      `${this.requestService.getApiAddress()}/students/${studentId}`,
     );
   }
 }

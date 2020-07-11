@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {SubjectService} from '../../shared/service/subject.service';
 
 @Component({
   templateUrl: './subject-list.component.html',
@@ -10,30 +11,21 @@ export class SubjectListComponent implements OnInit {
   public currentPage: number;
   public page: number;
 
-  constructor() {}
+  constructor(
+    private subjectService: SubjectService
+  ) {}
   ngOnInit(): void {
-    this.subjects = [
-      {
-        name: 'Duong loi Ho Chi Minh',
-        code: 'SB001',
-        credit_point: 3
-      },
-      {
-        name: 'Giai tich 2',
-        code: 'GT002',
-        credit_point: 3
-      },
-      {
-        name: 'Vat ly dai cuong 1',
-        code: 'VL001',
-        credit_point: 4
-      }
-    ];
+    this.subjectService.getAllSubjects().subscribe((response) => {
+      this.subjects = response.content;
+      this.totalPages = response.totalPages;
 
-    this.totalPages = this.subjects.length;
+    });
+
     this.currentPage = 1;
     this.page = 1;
   }
+
+  public deleteSubject(subject: any) {}
 
   public redirectCallback(page: number) {}
 }

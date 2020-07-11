@@ -11,6 +11,8 @@ import {MenuComponent} from './menu/menu.component';
 import {UserService} from './service/user.service';
 import {PaginatorComponent} from './paginator/paginator.component';
 import {AuthInterceptor} from './service/auth.interceptor';
+import {SubjectService} from './service/subject.service';
+import {ScoreService} from './service/score.service';
 
 @NgModule({
   imports: [
@@ -36,6 +38,8 @@ import {AuthInterceptor} from './service/auth.interceptor';
     RequestService,
     CookieService,
     UserService,
+    SubjectService,
+    ScoreService
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

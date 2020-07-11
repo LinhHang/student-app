@@ -11,6 +11,10 @@ import {UserProfileComponent} from './user/user-profile/user-profile.component';
 import {StudentInfoComponent} from './student-info/student-info.component';
 import {AuthInterceptor} from './shared/service/auth.interceptor';
 import {SubjectListComponent} from './subject/subject-list/subject-list.component';
+import {SubjectAddComponent} from './subject/subject-add/subject-add.component';
+import {SubjectEditComponent} from './subject/subject-edit/subject-edit.component';
+import {SubjectScoresComponent} from './subject/subject-scores/subject-scores.component';
+import {ScoreAddComponent} from './score/score-add.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import {SubjectListComponent} from './subject/subject-list/subject-list.componen
     UserSignInComponent,
     UserProfileComponent,
     StudentInfoComponent,
-    SubjectListComponent
+    SubjectListComponent,
+    SubjectAddComponent,
+    SubjectEditComponent,
+    SubjectScoresComponent,
+    ScoreAddComponent,
   ],
   imports: [
     BrowserModule,

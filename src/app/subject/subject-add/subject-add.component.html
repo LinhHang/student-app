@@ -1,0 +1,51 @@
+<!-- Plain Background Wrapper -->
+<!-- Fixed Navbar Header -->
+<app-menu></app-menu>
+<!-- end Fixed Navbar Header -->
+
+<app-common-header
+        [pageTitle]="'Subject adding'">
+</app-common-header>
+<!-- Content -->
+<div class="container-fluid row">
+    <form [formGroup]="form"
+          (submit)="addSubject()">
+        <div class="form-group">
+            <label for="name" class="form-part">
+                Name
+            </label>
+            <input type="text" name="name" id="name" placeholder="name" formControlName="name">
+            <span *ngIf="hasError('name')" class="error">Required field</span>
+        </div>
+
+        <div class="form-group">
+            <label for="code" class="form-part">
+                Subject code
+            </label>
+            <input type="text" name="code" id="code" placeholder="Enter subject code" formControlName="code" class="pass">
+            <span *ngIf="hasError('code')" class="error">Required field</span>
+        </div>
+
+        <div class="form-group">
+            <label for="creditPoint" class="form-part">
+                Subject points
+            </label>
+            <input type="text" name="creditPoint" id="creditPoint" placeholder="Enter subject points" formControlName="creditPoint" class="pass">
+            <span *ngIf="hasError('creditPoint')" class="error">Required field</span>
+        </div>
+
+        <div class="form-group submit-button">
+            <button type="submit" class="btn">Add</button>
+        </div>
+
+        <div class="error-msg" *ngIf="isShowErrorMessage">
+            <p class="error error-msg">Can not add subject</p>
+        </div>
+    </form>
+</div>
+    <!--end Investment Form Section-->
+
+    <footer></footer>
+<!-- end Content -->
+<!-- end Plain Background Wrapper -->
+
